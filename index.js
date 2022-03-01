@@ -1,3 +1,9 @@
-import * as wasm from "hello-wasm-pack";
+import * as wasm from "wasm_prolog";
 
-wasm.greet();
+const button = document.getElementById("execute");
+button.addEventListener("click", _ => {
+    const code = document.getElementById('code').value;
+    const r = wasm.run(code);
+    const result = document.getElementById('result');
+    result.innerHTML = r;
+})
